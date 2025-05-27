@@ -11,7 +11,7 @@ export default function Withdraw() {
 
     const fetchWithdrawals = async () => {
         try {
-            const res = await axios.get('http://192.168.1.17:5000/api/auth/withdrawals');
+            const res = await axios.get('https://dc07b29c-1980-4109-9554-01ba54d94877-00-2hb56wcklxh32.worf.replit.dev/api/auth/withdrawals');
             setWithdrawals(res.data.data); // Adjust this based on your backend response structure
         } catch (err) {
             console.error('Failed to fetch withdrawals:', err);
@@ -23,7 +23,7 @@ export default function Withdraw() {
     const handleComplete = async (id) => {
         if (!confirm("Mark this withdrawal as complete?")) return;
         try {
-            await axios.post(`http://192.168.1.17:5000/api/auth/withdrawals/${id}/complete`);
+            await axios.post(`https://dc07b29c-1980-4109-9554-01ba54d94877-00-2hb56wcklxh32.worf.replit.dev/api/auth/withdrawals/${id}/complete`);
             setWithdrawals((prev) =>
                 prev.map((w) =>
                     w._id === id ? { ...w, status: 'completed' } : w
