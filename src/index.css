@@ -161,3 +161,14 @@ a {
   background-color: #9ca3af;
   cursor: not-allowed;
 }
+
+.complete-btn {
+  background-color: #A4508B;
+  color: #fff;
+  border: 1px solid white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}

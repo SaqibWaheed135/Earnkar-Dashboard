@@ -80,7 +80,7 @@ export default function Withdraw() {
                                         {w.status === 'pending' && (
                                             <button
                                                 onClick={() => handleComplete(w._id)}
-                                                className="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded"
+                                                className="complete-btn"
                                             >
                                                 Mark Complete
                                             </button>
