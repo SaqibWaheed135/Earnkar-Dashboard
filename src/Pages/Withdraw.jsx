@@ -23,7 +23,7 @@ export default function Withdraw() {
     const handleComplete = async (id) => {
         if (!confirm("Mark this withdrawal as complete?")) return;
         try {
-            await axios.post(`https://dc07b29c-1980-4109-9554-01ba54d94877-00-2hb56wcklxh32.worf.replit.dev/api/auth/withdrawals/${id}/complete`);
+            await axios.post(`https://earnkar-dashboard-backend.onrender.com/api/auth/withdrawals/${id}/complete`);
             setWithdrawals((prev) =>
                 prev.map((w) =>
                     w._id === id ? { ...w, status: 'completed' } : w
