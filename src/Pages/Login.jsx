@@ -20,7 +20,7 @@ const Login = () => {
         setError('');
 
         try {
-            const res = await fetch('https://8b16358e-13d6-455a-ac70-cd33c32ed66b-00-2uyuguky7d39t.spock.replit.dev/api/admin/login', {
+            const res = await fetch('https://earnkar-dashboard-backend.onrender.com/api/admin/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
