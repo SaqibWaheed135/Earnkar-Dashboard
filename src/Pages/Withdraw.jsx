@@ -11,7 +11,7 @@ export default function Withdraw() {
 
     const fetchWithdrawals = async () => {
         try {
-            const res = await axios.get('https://dc07b29c-1980-4109-9554-01ba54d94877-00-2hb56wcklxh32.worf.replit.dev/api/auth/withdrawals');
+            const res = await axios.get('https://earnkar-dashboard-backend.onrender.com/api/admin/login/api/auth/withdrawals');
             setWithdrawals(res.data.data); // Adjust this based on your backend response structure
         } catch (err) {
             console.error('Failed to fetch withdrawals:', err);
