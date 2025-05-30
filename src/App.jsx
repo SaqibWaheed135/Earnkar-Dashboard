@@ -40,7 +40,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Layout>
-                <UsersList />
+                <UsersList/>
               </Layout>
             </ProtectedRoute>
           }

@@ -4,7 +4,6 @@ import axios from 'axios';
 export default function UsersList() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    localStorage.setItem('adminToken', res.data.token);
 
 
     useEffect(() => {
@@ -13,11 +12,11 @@ export default function UsersList() {
 
     const fetchUsers = async () => {
         try {
-            const token = localStorage.getItem('adminToken');
 
             const res = await axios.get('https://earnkarbackend.onrender.com/api/auth/getUsers'); // Replace with your actual API
+            console.log(res.data.data);
             setUsers(res.data.data); // Adjust if needed based on your response format
-            console.log(res)
+
         } catch (err) {
             console.error('Failed to fetch users:', err);
         } finally {
