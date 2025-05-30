@@ -15,12 +15,9 @@ export default function UsersList() {
         try {
             const token = localStorage.getItem('adminToken');
 
-            const res = await axios.get('https://earnkarbackend.onrender.com/api/auth/getUsers', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }); // Replace with your actual API
+            const res = await axios.get('https://earnkarbackend.onrender.com/api/auth/getUsers'); // Replace with your actual API
             setUsers(res.data.data); // Adjust if needed based on your response format
+            console.log(res)
         } catch (err) {
             console.error('Failed to fetch users:', err);
         } finally {
