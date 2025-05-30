@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard';
 import Withdraw from './Pages/Withdraw';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import UsersList from './Pages/Users';
 
 function App() {
   return (
@@ -29,6 +30,17 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <Withdraw />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+          <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <UsersList />
               </Layout>
             </ProtectedRoute>
           }

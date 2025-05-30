@@ -25,7 +25,7 @@ export default function Sidebar() {
                 <ul>
                     <li><Home size={18} /> Dashboard</li>
                     <li><Link to="/withdraw"><Banknote size={18} />Withdraw</Link></li>
-                    <li><Users size={18} /> Customers</li>
+                    <li><Link to="/users"><Users size={18} />Users</Link></li>
                     <li><Settings size={18} /> Settings</li>
                 </ul>
             </nav>
@@ -40,15 +40,15 @@ export default function Sidebar() {
 
 const styles = {
     logoutBtn: {
-    backgroundColor: '#A4508B',
-    color: '#fff',
-    border: '1px solid white',
-    padding: '6px 12px',
-    borderRadius: 4,
-    cursor:'pointer',
-    fontSize: 14,
-    transition: 'backgroundColor 0.2s ease',
-    width:'100%',
-    height:40
+        backgroundColor: '#A4508B',
+        color: '#fff',
+        border: '1px solid white',
+        padding: '6px 12px',
+        borderRadius: 4,
+        cursor: 'pointer',
+        fontSize: 14,
+        transition: 'backgroundColor 0.2s ease',
+        width: '100%',
+        height: 40
     },
 }
