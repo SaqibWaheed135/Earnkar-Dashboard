@@ -11,7 +11,7 @@ export default function Withdraw() {
 
     const fetchWithdrawals = async () => {
         try {
-            const res = await axios.get('https://earnkarbackend.onrender.com/api/auth/withdrawals');
+            const res = await axios.get('https://backend-earnkar.vercel.app/api/auth/withdrawals');
             setWithdrawals(res.data.data); // Adjust this based on your backend response structure
         } catch (err) {
             console.error('Failed to fetch withdrawals:', err);
@@ -23,7 +23,7 @@ export default function Withdraw() {
     const handleComplete = async (id) => {
         if (!confirm("Mark this withdrawal as complete?")) return;
         try {
-            await axios.post(`https://earnkarbackend.onrender.com/api/auth/withdrawals/${id}/complete`);
+            await axios.post(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
             setWithdrawals((prev) =>
                 prev.map((w) =>
                     w._id === id ? { ...w, status: 'completed' } : w

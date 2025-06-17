@@ -6,6 +6,9 @@ import Withdraw from './Pages/Withdraw';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import UsersList from './Pages/Users';
+import AddAdForm from './Pages/Ads';
+import AdList from './Pages/AdLists';
+import EditAdForm from './components/EditAdForm';
 
 function App() {
   return (
@@ -45,6 +48,31 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/ads"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <AddAdForm/>
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/ads-lists"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <AdList/>
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/ads/edit/:id" element={<EditAdForm />} />
+
       </Routes>
     </Router>
   );

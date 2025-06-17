@@ -172,3 +172,16 @@ a {
   font-size: 12px;
   transition: background-color 0.2s ease;
 }
+.withdraw-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

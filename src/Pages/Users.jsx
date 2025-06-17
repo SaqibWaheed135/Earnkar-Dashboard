@@ -26,7 +26,7 @@ export default function UsersList() {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get('https://earnkarbackend.onrender.com/api/auth/getUsers');
+            const res = await axios.get('https://backend-earnkar.vercel.app/api/auth/getUsers');
             const usersData = Array.isArray(res.data.data) ? res.data.data : res.data;
             setUsers(usersData);
         } catch (err) {
@@ -42,7 +42,7 @@ export default function UsersList() {
         if (!confirm) return;
 
         try {
-            await axios.delete(`https://earnkarbackend.onrender.com/api/auth/deleteUser/${userId}`);
+            await axios.delete(`https://backend-earnkar.vercel.app/api/auth/deleteUser/${userId}`);
             setUsers(prevUsers => prevUsers.filter(user => user._id !== userId));
         } catch (err) {
             console.error('Failed to delete user:', err);
