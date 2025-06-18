@@ -6,29 +6,28 @@ export default function AddAdForm() {
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
     const [category, setCategory] = useState('');
-    const [photoUrl, setPhotoUrl] = useState('');
+    const [photo, setPhoto] = useState(null); // ✅ actual photo file
     const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const adData = {
-            title,
-            description,
-            adLink: link,
-            category,
-            photoUrl,
-        };
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('adLink', link);
+        formData.append('category', category);
+        formData.append('photo', photo); // ✅ correct field name
 
         try {
             const token = localStorage.getItem('adminToken');
             const res = await axios.post(
                 'https://backend-earnkar.vercel.app/api/admin/auth/ad',
-                adData,
+                formData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'multipart/form-data', // ✅ must be this
                     },
                 }
             );
@@ -38,7 +37,7 @@ export default function AddAdForm() {
             setDescription('');
             setLink('');
             setCategory('');
-            setPhotoUrl('');
+            setPhoto(null);
         } catch (err) {
             console.error(err);
             setMessage('Failed to add ad.');
@@ -83,23 +82,11 @@ export default function AddAdForm() {
                 </div>
 
                 <div className="form-group">
-                    <label className="withdraw-th">Ad Category</label>
+                    <label className="withdraw-th">Ad Photo</label>
                     <input
-                        type="text"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        required
-                        className="withdraw-input"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label className="withdraw-th">Ad Photo URL</label>
-                    <input
-                        type="url"
-                        value={photoUrl}
-                        onChange={(e) => setPhotoUrl(e.target.value)}
-                        placeholder="https://example.com/photo.jpg"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => setPhoto(e.target.files[0])}
                         required
                         className="withdraw-input"
                     />

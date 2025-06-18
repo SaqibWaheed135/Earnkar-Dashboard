@@ -63,7 +63,6 @@ export default function AdList() {
               <tr>
                 <th className="withdraw-th">Photo</th>
                 <th className="withdraw-th">Title</th>
-                <th className="withdraw-th">Category</th>
                 <th className="withdraw-th">Link</th>
                 <th className="withdraw-th">Actions</th>
               </tr>
@@ -76,17 +75,17 @@ export default function AdList() {
                       src={ad.displayPhoto}
                       alt={ad.title}
                       style={{
-                        width: '60px',
+                        width: '100px',
                         height: 'auto',
                         borderRadius: '4px',
-                        objectFit: 'cover'
+                        objectFit: 'cover',
+                        alignSelf:'center'
                       }}
                     />
                   </td>
                   <td className="withdraw-td">{ad.title}</td>
-                  <td className="withdraw-td">{ad.category}</td>
                   <td className="withdraw-td">
-                    <a href={ad.adLink} target="_blank" rel="noopener noreferrer">Visit</a>
+                    <a href={ad.adLink} target="_blank" rel="noopener noreferrer" style={{color:'#16a34a',alignSelf:'center',fontSize:16, fontWeight:600}}>Visit</a>
                   </td>
                   <td className="withdraw-td">
                     <button
@@ -95,7 +94,7 @@ export default function AdList() {
                         backgroundColor: '#3498db',
                         color: 'white',
                         border: 'none',
-                        padding: '6px 12px',
+                        padding: '13px 30px',
                         borderRadius: '5px',
                         cursor: 'pointer',
                         marginRight: '8px'
@@ -109,7 +108,7 @@ export default function AdList() {
                         backgroundColor: '#e74c3c',
                         color: 'white',
                         border: 'none',
-                        padding: '6px 12px',
+                        padding: '13px 30px',
                         borderRadius: '5px',
                         cursor: 'pointer',
                       }}
