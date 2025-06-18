@@ -88,7 +88,7 @@ export default function AdList() {
                     <a href={ad.adLink} target="_blank" rel="noopener noreferrer" style={{color:'#16a34a',alignSelf:'center',fontSize:16, fontWeight:600}}>Visit</a>
                   </td>
                   <td className="withdraw-td">
-                    <button
+                    {/* <button
                       onClick={() => editAd(ad._id)}
                       style={{
                         backgroundColor: '#3498db',
@@ -101,7 +101,7 @@ export default function AdList() {
                       }}
                     >
                       Edit
-                    </button>
+                    </button> */}
                     <button
                       onClick={() => deleteAd(ad._id)}
                       style={{
