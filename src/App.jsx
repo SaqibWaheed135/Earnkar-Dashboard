@@ -9,6 +9,8 @@ import UsersList from './Pages/Users';
 import AddAdForm from './Pages/Ads';
 import AdList from './Pages/AdLists';
 import EditAdForm from './components/EditAdForm';
+import VideoListApproval from './Pages/ApprovalVideoList';
+import ApprovedVideoList from './Pages/ApprovedVideoList';
 
 function App() {
   return (
@@ -38,23 +40,44 @@ function App() {
           }
         />
 
-          <Route
+        <Route
           path="/users"
           element={
             <ProtectedRoute>
               <Layout>
-                <UsersList/>
+                <UsersList />
               </Layout>
             </ProtectedRoute>
           }
         />
 
         <Route
+          path="/video-approval"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <VideoListApproval />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/approved-video"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ApprovedVideoList />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/ads"
           element={
             <ProtectedRoute>
               <Layout>
-                <AddAdForm/>
+                <AddAdForm />
               </Layout>
             </ProtectedRoute>
           }
@@ -65,11 +88,13 @@ function App() {
           element={
             <ProtectedRoute>
               <Layout>
-                <AdList/>
+                <AdList />
               </Layout>
             </ProtectedRoute>
           }
         />
+
+
 
         <Route path="/ads/edit/:id" element={<EditAdForm />} />
 
