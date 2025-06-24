@@ -81,6 +81,7 @@ export default function Withdraw() {
                                             <button
                                                 onClick={() => handleComplete(w._id)}
                                                 className="complete-btn"
+                                                style={{fontFamily:'poppins'}}
                                             >
                                                 Mark Complete
                                             </button>

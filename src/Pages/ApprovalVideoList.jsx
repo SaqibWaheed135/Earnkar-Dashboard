@@ -32,7 +32,7 @@ export default function VideoList() {
     if (!window.confirm('Are you sure you want to delete this video?')) return;
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`https://earnkar-backend-code.vercel.app/api/auth/getVideos/${id}`, {
+      await axios.delete(`https://earnkar-backend-code.vercel.app/api/auth/deleteVideo/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setVideos((prev) => prev.filter((video) => video._id !== id));
@@ -46,14 +46,14 @@ export default function VideoList() {
   const approveVideo = async (id) => {
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post(`https://earnkar-backend-code.vercel.app/api/auth/approveVideo`, 
+      await axios.post(`https://earnkar-backend-code.vercel.app/api/auth/approveVideo`,
         { videoId: id },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setVideos((prev) => 
-        prev.map((video) => 
+      setVideos((prev) =>
+        prev.map((video) =>
           video._id === id ? { ...video, isApproved: true } : video
         )
       );
@@ -79,8 +79,27 @@ export default function VideoList() {
   };
 
   return (
+
     <div className="withdraw-container">
+      {/* Add Video Button */}
       <h1 className="withdraw-heading">Videos List</h1>
+      <div style={{ marginBottom: '20px' }}>
+        <button
+          onClick={() => navigate('/video-upload')} // ✅ Update with correct route
+          style={{
+            backgroundColor: '#5F0A87',
+            color: 'white',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontFamily: 'Poppins',
+          }}
+        >
+          ➕ Add Video
+        </button>
+      </div>
 
       {message && <p>{message}</p>}
       {loading ? (
@@ -176,6 +195,8 @@ export default function VideoList() {
                           cursor: video.isApproved ? 'not-allowed' : 'pointer',
                           fontSize: '12px',
                           opacity: video.isApproved ? 0.6 : 1,
+                          fontFamily: 'poppins'
+
                         }}
                       >
                         {video.isApproved ? 'Approved' : 'Approve'}
@@ -204,6 +225,7 @@ export default function VideoList() {
                           borderRadius: '5px',
                           cursor: 'pointer',
                           fontSize: '12px',
+                          fontFamily: 'poppins'
                         }}
                       >
                         Delete

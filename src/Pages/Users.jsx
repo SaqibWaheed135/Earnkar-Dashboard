@@ -102,6 +102,7 @@ export default function UsersList() {
                                                 padding: '6px 12px',
                                                 borderRadius: '5px',
                                                 cursor: 'pointer',
+                                                fontFamily:'poppins'
                                             }}
                                         >
                                             Delete

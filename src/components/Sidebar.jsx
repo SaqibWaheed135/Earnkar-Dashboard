@@ -8,6 +8,8 @@ import {
   LayoutDashboard,
   List,
   Video,
+  UploadCloud, 
+  Coins
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/eanrkarlogo.png';
@@ -54,7 +56,7 @@ export default function Sidebar() {
       <nav>
         <ul>
           <li><Link to="/dashboard"><Home size={18} /> Dashboard</Link></li>
-          <li><Link to="/withdraw"><Banknote size={18} /> Withdraw</Link></li>
+          <li><Link to="/withdraw"><Coins size={18} /> Withdraw</Link></li>
           <li><Link to="/users"><Users size={18} /> Users</Link></li>
 
           {/* ✅ Videos Dropdown */}
@@ -76,15 +78,23 @@ export default function Sidebar() {
           {videoMenuOpen && (
             <ul style={{ paddingLeft: '20px', marginTop: '5px' }}>
               <li>
-                <Link to="/video-approval" style={{ display: 'flex', alignItems: 'center', gap: 6,fontSize:14 }}>
+                <Link to="/video-upload" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 14 }}>
+                  <UploadCloud size={16} /> Upload Videos
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/video-approval" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 14 }}>
                   <List size={16} /> Approval Videos
                 </Link>
               </li>
               <li>
-                <Link to="/approved-video" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize:14 }}>
+                <Link to="/approved-video" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 14 }}>
                   <List size={16} /> Approved Videos
                 </Link>
               </li>
+
+
             </ul>
           )}
 
@@ -108,7 +118,7 @@ export default function Sidebar() {
             <ul style={{ paddingLeft: '20px', marginTop: '5px' }}>
               <li>
                 <Link to="/ads" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <LayoutDashboard size={16} /> Add Ad
+                  <UploadCloud size={16} /> Add Ad
                 </Link>
               </li>
               <li>
@@ -143,6 +153,7 @@ const styles = {
     transition: 'backgroundColor 0.2s ease',
     width: '100%',
     height: 40,
+    fontFamily: 'Poppins',
   },
   modalOverlay: {
     position: 'fixed',

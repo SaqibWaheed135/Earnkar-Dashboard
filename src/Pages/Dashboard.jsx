@@ -17,7 +17,7 @@ export default function Dashboard() {
       <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Dashboard</h1>
       <div className="cards">
         <div className="card">
-          <div>Total Customers</div>
+          <div>Total Users</div>
           <div style={{ fontSize: '20px', fontWeight: 'bold' }}>567,899</div>
         </div>
         <div className="card">
@@ -25,11 +25,11 @@ export default function Dashboard() {
           <div style={{ fontSize: '20px', fontWeight: 'bold' }}>$3,465 M</div>
         </div>
         <div className="card">
-          <div>Total Orders</div>
+          <div>Total Videos</div>
           <div style={{ fontSize: '20px', fontWeight: 'bold' }}>1,136 M</div>
         </div>
         <div className="card">
-          <div>Total Returns</div>
+          <div>Total Withdrawal</div>
           <div style={{ fontSize: '20px', fontWeight: 'bold' }}>1,789</div>
         </div>
       </div>

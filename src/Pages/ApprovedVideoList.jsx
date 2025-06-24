@@ -73,6 +73,23 @@ export default function ApprovedVideoList() {
   return (
     <div className="withdraw-container">
       <h1 className="withdraw-heading">Approved Videos</h1>
+   <div style={{ marginBottom: '20px' }}>
+        <button
+          onClick={() => navigate('/video-upload')} // ✅ Update with correct route
+          style={{
+            backgroundColor: '#5F0A87',
+            color: 'white',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontFamily: 'Poppins',
+          }}
+        >
+          ➕ Add Video
+        </button>
+      </div>
 
       {message && <p>{message}</p>}
       {loading ? (

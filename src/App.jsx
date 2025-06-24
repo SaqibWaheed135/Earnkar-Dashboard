@@ -11,6 +11,7 @@ import AdList from './Pages/AdLists';
 import EditAdForm from './components/EditAdForm';
 import VideoListApproval from './Pages/ApprovalVideoList';
 import ApprovedVideoList from './Pages/ApprovedVideoList';
+import VideoUpload from './Pages/AdVideo';
 
 function App() {
   return (
@@ -46,6 +47,16 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <UsersList />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/video-upload"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <VideoUpload />
               </Layout>
             </ProtectedRoute>
           }
