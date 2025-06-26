@@ -150,7 +150,7 @@ export default function VideoList() {
                           }}
                         />
                       )}
-                      <span>{video.user}</span>
+                      <span>{video.username}</span>
                     </div>
                   </td>
                   <td className="withdraw-td">
