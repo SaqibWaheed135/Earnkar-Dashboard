@@ -25,7 +25,7 @@ export default function Withdraw() {
 
     try {
         // Changed from POST to PUT and updated the route structure
-        const response = await axios.put(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
+        const response = await axios.post(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
 
         // Access withdrawal data from the nested response structure
         const updatedWithdrawal = response.data.data.withdrawal;
@@ -111,14 +111,14 @@ export default function Withdraw() {
                         <tbody>
                             {withdrawals.map((w) => (
                                 <tr key={w._id}>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">
                                         {w.userId?.firstName} {w.userId?.lastName} <br />
                                         <small className="text-gray-600">{w.userId?.email}</small>
                                     </td>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">
                                         {renderPaymentDetails(w)}
                                     </td>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">
                                         <span className={`px-2 py-1 rounded text-xs ${w.method === 'BANK'
                                                 ? 'bg-green-100 text-green-800'
                                                 : 'bg-blue-100 text-blue-800'
@@ -126,16 +126,16 @@ export default function Withdraw() {
                                             {w.method || (w.walletAddress ? 'WALLET' : 'UNKNOWN')}
                                         </span>
                                     </td>
-                                    <td className="withdraw-td">{w.points}</td>
-                                    <td className="withdraw-td">{renderAmount(w)}</td>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">{w.points}</td>
+                                    <td className="withdraw2-td">{renderAmount(w)}</td>
+                                    <td className="withdraw2-td">
                                         {w.status === 'completed' ? (
                                             <span className="withdraw-status-completed">Completed</span>
                                         ) : (
                                             <span className="withdraw-status-pending">Pending</span>
                                         )}
                                     </td>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">
                                         <small className="text-gray-600">
                                             {w.createdAt ? new Date(w.createdAt).toLocaleDateString('en-IN', {
                                                 day: '2-digit',
@@ -144,7 +144,7 @@ export default function Withdraw() {
                                             }) : 'N/A'}
                                         </small>
                                     </td>
-                                    <td className="withdraw-td">
+                                    <td className="withdraw2-td">
                                         {w.status === 'pending' && (
                                             <button
                                                 onClick={() => handleComplete(w._id)}
@@ -165,3 +165,4 @@ export default function Withdraw() {
         </div>
     );
 }
+

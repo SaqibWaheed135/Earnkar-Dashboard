@@ -8,8 +8,9 @@ import {
   LayoutDashboard,
   List,
   Video,
-  UploadCloud, 
-  Coins
+  UploadCloud,
+  Coins,
+  Flag
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/eanrkarlogo.png';
@@ -49,13 +50,14 @@ export default function Sidebar() {
       <img
         src={Logo}
         alt="EarnKar Logo"
-        style={{ width: '100px', height: '70px', margin: 20, marginLeft: 40, borderRadius: 10 }}
+        style={{ width: '120px', height: '80px', margin: 20, marginLeft: 40, borderRadius: 10 }}
       />
 
       {/* Navigation Menu */}
       <nav>
         <ul>
           <li><Link to="/dashboard"><Home size={18} /> Dashboard</Link></li>
+
           <li><Link to="/withdraw"><Coins size={18} /> Withdraw</Link></li>
           <li><Link to="/users"><Users size={18} /> Users</Link></li>
 
@@ -114,6 +116,9 @@ export default function Sidebar() {
             {adMenuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </li>
 
+          <li><Link to="/reported-videos"><Flag size={18} />Reported Videos</Link></li>
+
+
           {adMenuOpen && (
             <ul style={{ paddingLeft: '20px', marginTop: '5px' }}>
               <li>
@@ -126,9 +131,10 @@ export default function Sidebar() {
                   <List size={16} /> Ad Lists
                 </Link>
               </li>
+
+
             </ul>
           )}
-         <li><Link to="/video-reports"><Coins size={18} /> Reported Videos</Link></li>
         </ul>
       </nav>
 
@@ -153,6 +159,7 @@ const styles = {
     width: '100%',
     height: 40,
     fontFamily: 'Poppins',
+  
   },
   modalOverlay: {
     position: 'fixed',

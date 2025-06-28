@@ -12,6 +12,7 @@ import EditAdForm from './components/EditAdForm';
 import VideoListApproval from './Pages/ApprovalVideoList';
 import ApprovedVideoList from './Pages/ApprovedVideoList';
 import VideoUpload from './Pages/AdVideo';
+import ReportedVideos from './Pages/VideoReports';
 
 function App() {
   return (
@@ -105,9 +106,19 @@ function App() {
           }
         />
 
-
-
+          <Route
+          path="/reported-videos"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ReportedVideos />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
         <Route path="/ads/edit/:id" element={<EditAdForm />} />
+
+
 
       </Routes>
     </Router>
