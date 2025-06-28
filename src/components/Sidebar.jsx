@@ -128,8 +128,7 @@ export default function Sidebar() {
               </li>
             </ul>
           )}
-
-          <li><Settings size={18} /> Settings</li>
+         <li><Link to="/video-reports"><Coins size={18} /> Reported Videos</Link></li>
         </ul>
       </nav>
 
