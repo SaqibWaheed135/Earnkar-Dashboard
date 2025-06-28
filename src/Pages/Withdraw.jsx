@@ -20,26 +20,36 @@ export default function Withdraw() {
         }
     };
 
-    const handleComplete = async (id) => {
-        if (!window.confirm("Mark this withdrawal as complete?")) return;
+   const handleComplete = async (id) => {
+    if (!window.confirm("Mark this withdrawal as complete?")) return;
 
-        try {
-            const response = await axios.post(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
+    try {
+        // Changed from POST to PUT and updated the route structure
+        const response = await axios.put(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
 
-            const updatedWithdrawal = response.data.withdrawal;
+        // Access withdrawal data from the nested response structure
+        const updatedWithdrawal = response.data.data.withdrawal;
 
-            setWithdrawals((prev) =>
-                prev.map((w) =>
-                    w._id === id ? { ...w, ...updatedWithdrawal } : w
-                )
-            );
+        setWithdrawals((prev) =>
+            prev.map((w) =>
+                w._id === id ? { ...w, ...updatedWithdrawal } : w
+            )
+        );
 
-            alert(response.data.message || 'Withdrawal marked as complete.');
-        } catch (err) {
-            console.error('Failed to mark as complete:', err.response?.data || err.message);
-            alert('❌ Failed to complete withdrawal');
-        }
-    };
+        // Show success message
+        alert(response.data.message || 'Withdrawal marked as complete.');
+        
+        // Optional: You can also access the nested message
+        // alert(response.data.data.message || 'Withdrawal marked as complete.');
+        
+    } catch (err) {
+        console.error('Failed to mark as complete:', err.response?.data || err.message);
+        
+        // Show more detailed error message if available
+        const errorMessage = err.response?.data?.message || 'Failed to complete withdrawal';
+        alert(`❌ ${errorMessage}`);
+    }
+};
 
     const renderPaymentDetails = (withdrawal) => {
         if (withdrawal.method === 'BANK') {
