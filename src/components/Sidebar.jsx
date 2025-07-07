@@ -116,7 +116,6 @@ export default function Sidebar() {
             {adMenuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </li>
 
-          <li><Link to="/reported-videos"><Flag size={18} />Reported Videos</Link></li>
 
 
           {adMenuOpen && (
@@ -135,6 +134,8 @@ export default function Sidebar() {
 
             </ul>
           )}
+          <li><Link to="/reported-videos"><Flag size={18} />Reported Videos</Link></li>
+
         </ul>
       </nav>
 
@@ -159,7 +160,7 @@ const styles = {
     width: '100%',
     height: 40,
     fontFamily: 'Poppins',
-  
+
   },
   modalOverlay: {
     position: 'fixed',

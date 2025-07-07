@@ -25,7 +25,7 @@ export default function Withdraw() {
 
     try {
         // Changed from POST to PUT and updated the route structure
-        const response = await axios.post(`https://backend-earnkar.vercel.app/api/auth/withdrawals/${id}/complete`);
+        const response = await axios.post(`http://localhost:5000/api/admin/withdrawals/${id}/complete`);
 
         // Access withdrawal data from the nested response structure
         const updatedWithdrawal = response.data.data.withdrawal;
