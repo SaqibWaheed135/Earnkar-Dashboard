@@ -139,7 +139,7 @@ export default function ApprovedVideoList() {
                           }}
                         />
                       )}
-                      <span>{video.user}</span>
+                      <span>{video.username}</span>
                     </div>
                   </td>
                   <td className="withdraw-td">
