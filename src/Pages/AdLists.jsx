@@ -16,7 +16,7 @@ export default function AdList() {
     setLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const res = await axios.get('https://backend-earnkar.vercel.app/api/admin/auth/getAd', {
+      const res = await axios.get('https://earnkar-backend-code.vercel.app/api/admin/auth/getAd', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAds(res.data.data);
