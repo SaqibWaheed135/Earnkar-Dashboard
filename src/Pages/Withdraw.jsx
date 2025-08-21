@@ -11,7 +11,7 @@ export default function Withdraw() {
 
     const fetchWithdrawals = async () => {
         try {
-            const res = await axios.get('https://backend-earnkar.vercel.app/api/auth/withdrawals');
+            const res = await axios.get('https://earnkar-backend-code.vercel.app/api/auth/withdrawals');
             setWithdrawals(res.data.data); // Adjust this based on your backend response structure
         } catch (err) {
             console.error('Failed to fetch withdrawals:', err);
