@@ -34,7 +34,7 @@ export default function Withdraw() {
 
         try {
             // Update to use the correct backend URL
-            const response = await axios.post(`https://earnkar-backend-code.vercel.app/api/admin/withdrawals/${id}/complete`);
+            const response = await axios.post(`https://backend-earnkar.vercel.app/api/admin/withdrawals/${id}/complete`);
 
             if (response.data.success) {
                 // Update the withdrawal in the state
